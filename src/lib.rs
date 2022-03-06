@@ -24,9 +24,10 @@ use std::fmt::Debug;
 use std::ops::{Deref, DerefMut};
 
 use arbitrary::{Arbitrary, Error, Result, Unstructured};
+use serde::{Deserialize, Serialize};
 use serde_json::{Map, Number, Value};
 
-#[derive(Clone)]
+#[derive(Clone, Serialize, Deserialize)]
 pub struct ArbitraryValue(Value);
 
 impl<'a> Arbitrary<'a> for ArbitraryValue {
